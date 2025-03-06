@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>پورتفولیو پوریا گراف</title>
+    <link rel="icon" href="profile.jpg" type="image/jpeg">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font/dist/font-face.css">
+    <style>
+        /* استایل‌های عمومی */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Vazir', Arial, sans-serif;
+            background: linear-gradient(135deg, #2e2e2e, #161616);
+            color: #fff;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        body.light {
+            background: linear-gradient(135deg, #dfe9f3, #ffffff);
+            color: #333;
+        }
+
+        /* هدر */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background: #2b2b2b;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        header nav {
+            display: flex;
+            gap: 15px;
+        }
+
+        header nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 8px;
+            border-radius: 5px;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        header nav a:hover {
+            color: #727272;
+            transform: translateX(5px);
+        }
+
+        button.toggle-btn {
+            background: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        button.toggle-btn:hover {
+            transform: scale(1.1);
+        }
+
+        /* بخش‌ها */
+        section {
+            padding: 40px;
+            margin: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            background: rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #1e3c72;
+            color: #aaa;
+            transition: all 0.3s ease;
+        }
+
+        /* ریسپانسیو */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            header nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            section {
+                padding: 20px;
+                margin: 10px;
+            }
+
+            .project-images {
+                flex-direction: column;
+                gap: 10px;
+                align-items: center; /* تصاویر در وسط قرار می‌گیرند */
+            }
+
+            .project-images img {
+                width: 80%; /* عرض تصاویر کمی کوچک‌تر برای زیبایی */
+                max-width: 300px; /* حداکثر عرض برای جلوگیری از بزرگ شدن بیش از حد */
+            }
+
+            .vertical-project .project-images img {
+                aspect-ratio: 9/16;
+            }
+
+            .horizontal-projects {
+                flex-direction: column;
+                align-items: center; /* تصاویر در وسط قرار می‌گیرند */
+            }
+
+            .horizontal-projects .project-images {
+                width: 100%;
+            }
+
+            #skills ul {
+                padding-left: 20px;
+            }
+
+            .profile-card {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .profile-card img {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.5rem;
+            }
+
+            section {
+                padding: 15px;
+            }
+
+            footer {
+                font-size: 14px;
+            }
+
+            .project-images img {
+                width: 90%; /* عرض تصاویر در موبایل کمی بیشتر */
+            }
+        }
+
+        /* انیمیشن‌های بخش‌ها */
+        .fade-in {
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* استایل برای پروژه‌ها */
+        .project {
+            background: #fff;
+            color: #333;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .project h3 {
+            margin-top: 0;
+        }
+
+        .project p {
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        /* انیمیشن تغییر رنگ هنگام هاور */
+        .hover-effect:hover {
+            color: #0fb1d1;
+            transform: translateY(-5px);
+            transition: all 0.3s ease;
+        }
+
+        /* استایل برای هر قسمت از پروفایل */
+        .profile-card {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .profile-card img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin-right: 20px;
+        }
+
+        .profile-card h3 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        .profile-card p {
+            color: #ccc;
+            font-size: 0.9rem;
+        }
+
+        .project-images {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .project-images img {
+            width: 45%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <!-- هدر -->
+    <header>
+        <h1>پورتفولیو پوریا گراف</h1>
+        <nav>
+            <a href="#about">درباره من</a>
+            <a href="#projects">پروژه‌ها</a>
+            <a href="#skills">مهارت‌ها</a>
+            <a href="#contact">تماس با من</a>
+        </nav>
+    </header>
+
+    <!-- بخش درباره من -->
+    <section id="about" class="fade-in">
+        <h2>درباره من</h2>
+        <div class="profile-card">
+            <img src="profile.jpg" alt="Profile Image">
+            <div>
+                <h3>پوریا گراف</h3>
+                <p>اینجا اعتماد شرط اوله!</p>
+            </div>
+        </div>
+        <p>با چندین سال تجربه در پروژه‌ها و طراحی‌های مختلف مذهبی ، پوستر ، تراکت ، کاور استوری و طراحی هایلایت</p>
+    </section>
+
+    <!-- بخش پروژه‌ها -->
+    <section id="projects" class="fade-in">
+        <h2>پروژه های برتر</h2>
+        <div class="project">
+            <div class="project-images">
+                <img src="project1.jpg" alt="پروژه اول">
+                <img src="project2.jpg" alt="پروژه دوم">
+            </div>
+        </div>
+    </section>
+
+    <!-- بخش مهارت‌ها -->
+    <section id="skills" class="fade-in">
+        <h2>مهارت‌ها</h2>
+        <ul>
+            <li>طراحی بنر سایت</li>
+            <li>طراحی بنر استوری</li>
+            <li>طراحی بنر تبلیغاتی</li>
+            <li>طراحی کاور پست</li>
+            <li>طراحی پوستر</li>
+            <li>طراحی بروشور</li>
+            <li>طراحی تراکت</li>
+            <li>طراحی منو رستوران و...</li>
+            <li>طراحی کار های مذهبی</li>
+            <li>طراحی کاور هایلایت</li>
+            <li>طراحی کاور ریلز</li>
+            <li>طراحی کاور استوری</li>
+        </ul>
+    </section>
+
+    <!-- بخش تماس با من -->
+    <section id="contact" class="fade-in">
+        <h2>تماس با من</h2>
+        <li>شماره تلفن : 09224001160</li>
+        <li>ایتا : @aliCOD</li>
+        <li>اینستاگرام : puria_graph</li>
+    </section>
+
+    <section id="projects" class="fade-in">
+        <h2>همه پروژه ها</h2>
+        <div class="project-gallery">
+            <div class="project">
+                <div class="project-images">
+                    <img src="project1.jpg" alt="پروژه 1">
+                    <img src="project2.jpg" alt="پروژه 2">
+                </div>
+            </div>
+            <div class="project">
+                <div class="project-images">
+                    <img src="project3.jpg" alt="پروژه 3">
+                    <img src="project4.jpg" alt="پروژه 4">
+                </div>
+            </div>
+            <div class="project">
+                <div class="project-images">
+                    <img src="project5.jpg" alt="پروژه 5">
+                    <img src="project6.jpg" alt="پروژه 6">
+                </div>
+            </div>
+            <!-- پروژه 7 به تنهایی -->
+            <div class="project single-project">
+                <div class="project-images">
+                    <img src="project7.jpg" alt="پروژه 7">
+                </div>
+            </div>
+            <!-- پروژه‌های 8 و 9 به صورت افقی -->
+            <div class="project horizontal-projects">
+                <div class="project-images">
+                    <img src="project8.jpg" alt="پروژه 8">
+                </div>
+                <div class="project-images">
+                    <img src="project9.jpg" alt="پروژه 9">
+                </div>
+            </div>
+            <!-- ادامه پروژه‌ها -->
+            <div class="project-row">
+                <div class="project vertical-project">
+                    <div class="project-images">
+                        <img src="project10.jpg" alt="پروژه 10">
+                    </div>
+                </div>
+                <div class="project vertical-project">
+                    <div class="project-images">
+                        <img src="project11.jpg" alt="پروژه 11">
+                    </div>
+                </div>
+            </div>
+            <div class="project-row">
+                <div class="project vertical-project">
+                    <div class="project-images">
+                        <img src="project12.jpg" alt="پروژه 12">
+                    </div>
+                </div>
+                <div class="project vertical-project">
+                    <div class="project-images">
+                        <img src="project13.jpg" alt="پروژه 13">
+                    </div>
+                </div>
+            </div>
+            <div class="project-row">
+                <div class="project vertical-project">
+                    <div class="project-images">
+                        <img src="project14.jpg" alt="پروژه 14">
+                    </div>
+                </div>
+                <div class="project vertical-project">
+                    <div class="project-images">
+                        <img src="project15.jpg" alt="پروژه 15">
+                    </div>
+                </div>
+            </div>
+            <div class="project-row">
+                <div class="project vertical-project">
+                    <div class="project-images">
+                        <img src="project16.jpg" alt="پروژه 16">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- اسکریپت جاوااسکریپت -->
+    <script>
+        // انیمیشن‌ها
+        document.querySelectorAll('.fade-in').forEach(section => {
+            section.classList.add('fade-in');
+        });
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 50,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
