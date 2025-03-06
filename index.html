@@ -84,18 +84,9 @@
         footer {
             text-align: center;
             padding: 20px;
-            background: #1e3c72;
-            color: #aaa;
-            font-family: 'Vazir', Arial, sans-serif;
-        }
-
-        footer a {
-            color: #0fb1d1;
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
+            background: #131313;
+            color: #ffffff;
+            transition: all 0.3s ease;
         }
 
         /* ریسپانسیو */
@@ -115,6 +106,44 @@
                 padding: 20px;
                 margin: 10px;
             }
+
+            .project-images {
+                flex-direction: column;
+                gap: 10px;
+                align-items: center; /* تصاویر در وسط قرار می‌گیرند */
+            }
+
+            .project-images img {
+                width: 80%; /* عرض تصاویر کمی کوچک‌تر برای زیبایی */
+                max-width: 300px; /* حداکثر عرض برای جلوگیری از بزرگ شدن بیش از حد */
+            }
+
+            .vertical-project .project-images img {
+                aspect-ratio: 9/16;
+            }
+
+            .horizontal-projects {
+                flex-direction: column;
+                align-items: center; /* تصاویر در وسط قرار می‌گیرند */
+            }
+
+            .horizontal-projects .project-images {
+                width: 100%;
+            }
+
+            #skills ul {
+                padding-left: 20px;
+            }
+
+            .profile-card {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .profile-card img {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -128,6 +157,10 @@
 
             footer {
                 font-size: 14px;
+            }
+
+            .project-images img {
+                width: 90%; /* عرض تصاویر در موبایل کمی بیشتر */
             }
         }
 
@@ -274,7 +307,89 @@
         <li>اینستاگرام : puria_graph</li>
     </section>
 
-    <!-- فوتر -->
+    <section id="projects" class="fade-in">
+        <h2>همه پروژه ها</h2>
+        <div class="project-gallery">
+            <div class="project">
+                <div class="project-images">
+                    <img src="project1.jpg" alt="پروژه 1">
+                    <img src="project2.jpg" alt="پروژه 2">
+                </div>
+            </div>
+            <div class="project">
+                <div class="project-images">
+                    <img src="project3.jpg" alt="پروژه 3">
+                    <img src="project4.jpg" alt="پروژه 4">
+                </div>
+            </div>
+            <div class="project">
+                <div class="project-images">
+                    <img src="project5.jpg" alt="پروژه 5">
+                    <img src="project6.jpg" alt="پروژه 6">
+                </div>
+            </div>
+            <!-- پروژه 7 به تنهایی -->
+            <div class="project single-project">
+                <div class="project-images">
+                    <img src="project7.jpg" alt="پروژه 7">
+                </div>
+            </div>
+            <!-- پروژه‌های 8 و 9 به صورت افقی -->
+            <div class="project horizontal-projects">
+                <div class="project-images">
+                    <img src="project8.jpg" alt="پروژه 8">
+                </div>
+                <div class="project-images">
+                    <img src="project9.jpg" alt="پروژه 9">
+                </div>
+            </div>
+            <!-- ادامه پروژه‌ها -->
+            <div class="project-row">
+                <div class="project vertical-project">
+                    <div class="project-images">
+                        <img src="project10.jpg" alt="پروژه 10">
+                    </div>
+                </div>
+                <div class="project vertical-project">
+                    <div class="project-images">
+                        <img src="project11.jpg" alt="پروژه 11">
+                    </div>
+                </div>
+            </div>
+            <div class="project-row">
+                <div class="project vertical-project">
+                    <div class="project-images">
+                        <img src="project12.jpg" alt="پروژه 12">
+                    </div>
+                </div>
+                <div class="project vertical-project">
+                    <div class="project-images">
+                        <img src="project13.jpg" alt="پروژه 13">
+                    </div>
+                </div>
+            </div>
+            <div class="project-row">
+                <div class="project vertical-project">
+                    <div class="project-images">
+                        <img src="project14.jpg" alt="پروژه 14">
+                    </div>
+                </div>
+                <div class="project vertical-project">
+                    <div class="project-images">
+                        <img src="project15.jpg" alt="پروژه 15">
+                    </div>
+                </div>
+            </div>
+            <div class="project-row">
+                <div class="project vertical-project">
+                    <div class="project-images">
+                        <img src="project16.jpg" alt="پروژه 16">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <footer>
         <p>کد نویسی توسط <a href="https://t.me/TAHAGRAPHICK" target="_blank" rel="noopener noreferrer">@TAHAGRAPHICK</a></p>
     </footer>
